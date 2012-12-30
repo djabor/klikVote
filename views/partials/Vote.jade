@@ -1,0 +1,46 @@
+h3 Vote
+
+.title name: {{user.name}}
+
+.description description: {{user.description}}
+
+.vote
+	a(ng-click="vote(user._id)") vote
+
+.back
+	a(href="#/main") back
+
+.stats
+	a(href="#/stats") stats
+
+.fade#myModal(ui-modal, ng-model="modalShown", data-backdrop="static")
+	.modal-header
+		button.close(type="button", aria-hidden="true", ng-click="modalShown=false; shareFB();") &times;
+		h3 Register
+	.modal-body(ng-controller="RegisterCtrl")
+		form.form-horizontal(name="registerForm")
+			.control-group
+				label.control-label slogan
+				.controls
+					input(type="text", ng-model="registerObj.slogan", required)
+			.control-group
+				label.control-label name
+				.controls
+					input(type="text", ng-model="registerObj.name", required)
+			.control-group
+				label.control-label email
+				.controls
+					input(type="email", ng-model="registerObj.email", required)
+			.control-group
+				label.control-label phone
+				.controls
+					input(type="tel", ng-model="registerObj.phone", required)
+			.control-group
+				.controls
+					label.checkbox i agree to the terms
+						input(type="checkbox")
+					label.checkbox i agree to emails
+						input(type="checkbox")
+			.control-group
+				.controls
+					input(type="submit", ng-click="register()")

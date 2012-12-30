@@ -1,0 +1,16 @@
+h3 Statistics
+
+.stats
+	//.klik(ng-repeat="user in users", style="display:inline-block;")
+		//- .name {{user.name}}
+		//- .relative {{Math.round ((user.votes / totalVotes ) * 10000 ) / 100 }} %
+
+
+.charts(style="height: 400px; width: 870px; margin: 0 auto; border: black solid 1px;")
+	.column(ng-repeat="user in users", style="height: 400px; width: 125px; float: left; margin: 0 10px; position: relative;")
+		.filler(style="display: block; position: absolute; bottom: 0; background: red; width: 125px; height: {{Math.round ((user.votes / totalVotes ) * 400)}}px; -webkit-transition: linear 0.3s; ")
+		.labels(style="position: absolute; bottom: 0; font-weight: bold;")
+			.name(style="text-align: center; width: 125px;") {{user.name}}
+			.votes(style="text-align: center; width: 125px;") {{user.votes}}
+
+	//.klik#chart(hichart, charttype="column", chartheight="", title="votes", ytitle="#")

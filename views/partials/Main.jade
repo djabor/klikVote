@@ -1,0 +1,6 @@
+h3 main
+
+.kliks
+	.klik(ng-repeat="user in users | orderBy:user.dateCreated")
+		.name 
+			a(href="#/vote/{{user._id}}") {{user.name}}
